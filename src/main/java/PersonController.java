@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController
 public class PersonController {
-    private final PersonController personController;
-    public PersonController(PersonService PersonService) {
+    private final PersonService personService;
+    public PersonController(PersonService personService) {
         this.personService = personService;
 
     }
