@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PersonController {
     private final PersonController personController;
-    public PersonController(PersonController PersonController) {
-        this.personController = personController;
+    public PersonController(PersonService PersonService) {
+        this.personService = personService;
 
     }
     @GetMapping("/{employeeId}")
@@ -17,7 +17,7 @@ public class PersonController {
 
         }
 
-        Person person = personController.getPersonByEmployeeId(employeeId);
+        Person person = personService.getPersonByEmployeeId(employeeId);
         if(person == null){
             return ResponseEntity.notFound().build();
 
@@ -28,7 +28,7 @@ public class PersonController {
     @PostMapping("/createPerson")
     public ResponseEntity<String>create(@Valid @RequestBody Person person){
 
-        personController.savePerson(person);
+        personService.savePerson(person);
         return new ResponseEntity<>("person created successfully", HttpStatus.OK);
 
     }
