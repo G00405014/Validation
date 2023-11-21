@@ -21,9 +21,9 @@ public class Person {
     @NotBlank(message = "Position cannot be blank")
     private String position;
 
-    @NotBlank(message = "Deaptment cannot be blank")
+    @NotBlank(message = "Department cannot be blank")
     private String department;
 
     @NotBlank(message = "employeid cannot be blank")
-    private String employeeid;
+    private String employeeId;
 }
